@@ -1,0 +1,14 @@
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.deps.json
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.runtimeconfig.json
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.runtimeconfig.dev.json
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.csproj.CoreCompileInputs.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.RazorAssemblyInfo.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.RazorAssemblyInfo.cs
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.AssemblyInfoInputs.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.AssemblyInfo.cs
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.RazorTargetAssemblyInfo.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.pdb
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.pdb
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.ServiceHost.API\obj\Debug\netcoreapp2.2\Movie.ServiceHost.API.csprojAssemblyReference.cache

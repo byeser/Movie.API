@@ -14,6 +14,9 @@ using Swashbuckle.AspNetCore.Swagger;
 using Movie.ServiceHost.API.Middlewares;
 using NLog.Extensions.Logging;
 using NLog.Web;
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 
 namespace Movie.ServiceHost.API
 {
@@ -35,9 +38,18 @@ namespace Movie.ServiceHost.API
         {
             services.AddMvc();
             services.AddMemoryCache();
-
+           
             services.AddTransient<IFilmBusiness, FilmBusiness>();
             services.AddTransient<IFilmRepository, FilmRepository>();
+
+           
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.WithOrigins("AllowOrigins")
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+            }));
+
 
             services.AddSwaggerGen(c =>
               {
@@ -56,7 +68,7 @@ namespace Movie.ServiceHost.API
 
             app.UseMiddleware(typeof(GlobalExceptionMiddleware));
             app.UseMvc();
-
+            app.UseCors("CorsPolicy");
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>

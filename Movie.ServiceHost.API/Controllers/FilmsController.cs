@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -13,7 +14,7 @@ using Movie.ServiceHost.API.Models;
 
 namespace Movie.ServiceHost.API.Controllers
 {
-
+    [EnableCors("CorsPolicy")]
     public class FilmsController : Controller
     {
         private readonly IFilmBusiness _filmBusiness;
@@ -25,8 +26,9 @@ namespace Movie.ServiceHost.API.Controllers
             _filmBusiness = filmBusiness;
             _memoryCache = memoryCache;
         }
-        // GET api/films/
+        // GET api/films/       
         [Route("api/Films/GetAll")]
+        
         public async Task<FilmResponse> GetAll()
         {
             return await _filmBusiness.GetAllAsync();

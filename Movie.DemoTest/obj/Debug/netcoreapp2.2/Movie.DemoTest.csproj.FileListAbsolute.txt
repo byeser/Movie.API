@@ -1,0 +1,17 @@
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.DemoTest.deps.json
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.DemoTest.runtimeconfig.json
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.DemoTest.runtimeconfig.dev.json
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.DemoTest.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.DemoTest.pdb
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\bin\Debug\netcoreapp2.2\Movie.ServiceHost.API.pdb
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.csprojAssemblyReference.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.csproj.CoreCompileInputs.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.AssemblyInfoInputs.cache
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.AssemblyInfo.cs
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.csproj.CopyComplete
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.dll
+C:\Users\Eser\Documents\Visual Studio 2017\Projects\Movie\Movie.DemoTest\obj\Debug\netcoreapp2.2\Movie.DemoTest.pdb

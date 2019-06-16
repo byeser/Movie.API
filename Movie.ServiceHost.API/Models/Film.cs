@@ -7,10 +7,25 @@ namespace Movie.ServiceHost.API.Models
 {
     public class Film
     {
-        public string imdbID { get; set; }
-        public string title { get; set; }
-        public string year { get; set; }
-        public string type { get; set; }
-        public string poster { get; set; }
+        /// <summary>
+        /// Film ID 
+        /// </summary>
+        public string imdbID { get; set; } = string.Empty;
+        /// <summary>
+        /// Film Title
+        /// </summary>
+        public string title { get; set; } = string.Empty;
+        /// <summary>
+        /// Film Year
+        /// </summary>
+        public string year { get; set; } = string.Empty;
+        /// <summary>
+        /// Film Type
+        /// </summary>
+        public string type { get; set; } = string.Empty;
+        /// <summary>
+        /// Film Poster
+        /// </summary>
+        public string poster { get; set; } = string.Empty;
     }
 }

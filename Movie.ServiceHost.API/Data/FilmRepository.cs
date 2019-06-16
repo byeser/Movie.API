@@ -16,6 +16,11 @@ namespace Movie.ServiceHost.API.Data
         {
             _connectionStr = "Data Source=94.73.147.7;Initial Catalog=u8719880_mobtask;User ID=u8719880_taskuse;Password=GAla47D3";
         }
+        /// <summary>
+        /// New film Record
+        /// </summary>
+        /// <param name="film">Film Class</param>
+        /// <returns>Taks Film</returns>
         public async Task AddAsync(Film film)
         {
             using (IDbConnection dbconnection = _connection)
@@ -35,7 +40,10 @@ namespace Movie.ServiceHost.API.Data
                 await dbconnection.ExecuteAsync(query, film);
             }
         }
-
+        /// <summary>
+        /// Get All Film
+        /// </summary>
+        /// <returns>Task<IEnumerable<Film>> Film</returns>
         public async Task<IEnumerable<Film>> GetAllAsync()
         {
             using (IDbConnection dbconnection = _connection)
@@ -50,7 +58,11 @@ namespace Movie.ServiceHost.API.Data
                 return film;
             }
         }
-
+        /// <summary>
+        /// Get Title Film
+        /// </summary>
+        /// <param name="title">Film Title</param>
+        /// <returns>Task<IEnumerable<Film>> Film </returns>
         public async Task<IEnumerable<Film>> GetAsync(string title)
         {
             using (IDbConnection dbconnection = _connection)
@@ -66,7 +78,11 @@ namespace Movie.ServiceHost.API.Data
                 return film;
             }
         }
-
+        /// <summary>
+        /// Update Film
+        /// </summary>
+        /// <param name="film">Film Class</param>
+        /// <returns>Task Film</returns>
         public async Task UpdateAsync(Film film)
         {
             using (IDbConnection dbconnection = _connection)

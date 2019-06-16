@@ -27,8 +27,8 @@ namespace Movie.ServiceHost.API.Controllers
             _memoryCache = memoryCache;
         }
         // GET api/films/       
-        [Route("api/Films/GetAll")]
-        
+        [Route("api/Films/GetAll")]  
+        [Produces("application/json")]
         public async Task<FilmResponse> GetAll()
         {
             return await _filmBusiness.GetAllAsync();

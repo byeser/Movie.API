@@ -7,6 +7,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Movie.ServiceHost.API.Contracts;
 using Movie.ServiceHost.API.Data;
 using Movie.ServiceHost.API.Models;
+using Movie.ServiceHost.API.ServiceAdapters;
 using Newtonsoft.Json;
 
 namespace Movie.ServiceHost.API.Business
@@ -14,13 +15,24 @@ namespace Movie.ServiceHost.API.Business
     public class FilmBusiness : IFilmBusiness
     {
         private readonly IFilmRepository _filmRepository;
+        private readonly IOmbdService _ombdService;
         private readonly IMemoryCache _memoryCache;
         private const string cacheKey = "filmCacheSearch";
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filmRepository">Film Repository</param>
+        /// <param name="memoryCache">Memory Cache</param>
         public FilmBusiness(IFilmRepository filmRepository, IMemoryCache memoryCache)
         {
             _filmRepository = filmRepository;
             _memoryCache = memoryCache;
         }
+        /// <summary>
+        /// New Film Record
+        /// </summary>
+        /// <param name="film">Film Class</param>
+        /// <returns>Task Film</returns>
         public async Task AddAsync(Film film)
         {
             Film f = new Film
@@ -33,7 +45,10 @@ namespace Movie.ServiceHost.API.Business
             };
             await _filmRepository.AddAsync(f);
         }
-
+        /// <summary>
+        /// Get All Film List
+        /// </summary>
+        /// <returns>FilmReponse Class</returns>
         public async Task<FilmResponse> GetAllAsync()
         {
 
@@ -58,7 +73,11 @@ namespace Movie.ServiceHost.API.Business
 
             return response;
         }
-
+        /// <summary>
+        ///  Get Title Films
+        /// </summary>
+        /// <param name="title">Film Title</param>
+        /// <returns>FilmReponse Class</returns>
         public async Task<FilmResponse> GetAsync(string title)
         {
             IEnumerable<Film> film;
@@ -72,25 +91,13 @@ namespace Movie.ServiceHost.API.Business
             }
             FilmResponse response = new FilmResponse();
             if (film.Count() == 0)
-            {
-                var url = new WebClient().DownloadString("http://www.omdbapi.com/?apikey=1bdede5a&s=" + title);
-                var data = JsonConvert.DeserializeObject<dynamic>(url);
-                List<Film> films = new List<Film>();
-                int counter = data.Search.Count;
-                for (int i = 0; i < counter; i++)
+            {                
+                var result = _ombdService.ValidateFilm(title);
+                foreach (var item in result)
                 {
-                    Film f = new Film()
-                    {
-                        imdbID = data.Search[i].imdbID.ToString(),
-                        title = data.Search[i].Title.ToString(),
-                        year = data.Search[i].Year.ToString(),
-                        type = data.Search[i].Type.ToString(),
-                        poster = data.Search[i].Poster.ToString()
-                    };
-                    films.Add(f);
-                    await _filmRepository.AddAsync(f);
+                    await _filmRepository.AddAsync(item);
+                }
 
-                }                
                 var cacheExpirationOptions =
                     new MemoryCacheEntryOptions
                     {
@@ -99,35 +106,25 @@ namespace Movie.ServiceHost.API.Business
                     };
                 _memoryCache.Remove(cacheKey);
                 _memoryCache.Set(cacheKey,  await _filmRepository.GetAllAsync(), cacheExpirationOptions);
-                response.Films.AddRange(films);
+                response.Films.AddRange(result);
             }
             else
                 response.Films.AddRange(film);
             return response;
             
         }
-
+        /// <summary>
+        /// 10 minutes update
+        /// </summary>
+        /// <returns>Task Film</returns>
         public async Task UpdateAsync()
         {
             IEnumerable<Film> films= await  _filmRepository.GetAllAsync();
             foreach (var item in films)
-            {
-                var url = new WebClient().DownloadString("http://www.omdbapi.com/?apikey=1bdede5a&s=" + item.title);
-                var data = JsonConvert.DeserializeObject<dynamic>(url);                
-                int counter = data.Search.Count;
-                for (int i = 0; i < counter; i++)
+            {               
+                foreach (var subItem in _ombdService.ValidateFilm(item.title))
                 {
-                    Film f = new Film()
-                    {
-                        imdbID = data.Search[i].imdbID.ToString(),
-                        title = data.Search[i].Title.ToString(),
-                        year = data.Search[i].Year.ToString(),
-                        type = data.Search[i].Type.ToString(),
-                        poster = data.Search[i].Poster.ToString()
-                    };
-                  
-                    await _filmRepository.UpdateAsync(f);
-
+                    await _filmRepository.UpdateAsync(subItem);
                 }
             }
         }

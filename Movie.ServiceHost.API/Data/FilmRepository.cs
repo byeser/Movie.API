@@ -61,9 +61,24 @@ namespace Movie.ServiceHost.API.Data
                                 ,[type]
                                 ,[poster]
                                 FROM [dbo].[movies]  
-                                 WHERE  title LIKE '%" + title+"%' ";
+                                 WHERE  title LIKE '%" + title + "%' ";
                 var film = await dbconnection.QueryAsync<Film>(query);
                 return film;
+            }
+        }
+
+        public async Task UpdateAsync(Film film)
+        {
+            using (IDbConnection dbconnection = _connection)
+            {
+                string query = @"UPDATE [dbo].[movies] SET 
+                                imdbID=@imdbID,
+                                title=@title,
+                                year=@year,
+                                type=@type,
+                                poster=@poster WHERE imdbID='" + film.imdbID+"'";
+
+                await dbconnection.ExecuteAsync(query, film);
             }
         }
     }

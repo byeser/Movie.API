@@ -49,6 +49,11 @@ namespace Movie.ServiceHost.API.Controllers
         {
             await _filmBusiness.AddAsync(film);
         }
+        [Route("api/Films/Put")]
+        public async Task Put()
+        {
+            await _filmBusiness.UpdateAsync();
+        }
         [HttpGet]
         [Route("api/cachemanagement/clear")]
         public Boolean ClearCache()

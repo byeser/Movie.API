@@ -11,5 +11,6 @@ namespace Movie.ServiceHost.API.Data
         Task<IEnumerable<Film>> GetAsync(string title);
         Task<IEnumerable<Film>> GetAllAsync();
         Task AddAsync(Film film);
+        Task UpdateAsync(Film film);
     }
 }

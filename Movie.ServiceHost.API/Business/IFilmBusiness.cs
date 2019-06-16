@@ -12,5 +12,6 @@ namespace Movie.ServiceHost.API.Business
         Task<FilmResponse> GetAsync(string title);
         Task<FilmResponse> GetAllAsync();
         Task AddAsync(Film film);
+        Task UpdateAsync();
     }
 }

@@ -106,5 +106,30 @@ namespace Movie.ServiceHost.API.Business
             return response;
             
         }
+
+        public async Task UpdateAsync()
+        {
+            IEnumerable<Film> films= await  _filmRepository.GetAllAsync();
+            foreach (var item in films)
+            {
+                var url = new WebClient().DownloadString("http://www.omdbapi.com/?apikey=1bdede5a&s=" + item.title);
+                var data = JsonConvert.DeserializeObject<dynamic>(url);                
+                int counter = data.Search.Count;
+                for (int i = 0; i < counter; i++)
+                {
+                    Film f = new Film()
+                    {
+                        imdbID = data.Search[i].imdbID.ToString(),
+                        title = data.Search[i].Title.ToString(),
+                        year = data.Search[i].Year.ToString(),
+                        type = data.Search[i].Type.ToString(),
+                        poster = data.Search[i].Poster.ToString()
+                    };
+                  
+                    await _filmRepository.UpdateAsync(f);
+
+                }
+            }
+        }
     }
 }
